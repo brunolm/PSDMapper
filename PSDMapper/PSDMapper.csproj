@@ -38,7 +38,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <HintPath>..\..\Libs\Photoshop\ICSharpCode.SharpZipLib.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Interop.WIA, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -63,7 +64,8 @@
       <HintPath>..\..\Libs\Photoshop\PaintDotNet.SystemLayer.Native.x86.dll</HintPath>
     </Reference>
     <Reference Include="PhotoShop, Version=1.5.2.24498, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\Libs\Photoshop\PhotoShop.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\PhotoShop.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -77,7 +79,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="README" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

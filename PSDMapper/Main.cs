@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using PhotoshopFile;
 using PSDMapper.Properties;
+using System.Drawing;
 
 namespace PSDMapper
 {
@@ -64,13 +65,22 @@ namespace PSDMapper
                 .ToList()
                 .ForEach(l =>
                 {
+                    var nameTokens = l.Name.Split(new char[] { '-' }, 2);
+                    var sizeTokens = nameTokens[0].Split('x');
+
+                    var size = new Size(Convert.ToInt32(sizeTokens[0]), Convert.ToInt32(sizeTokens[1]));
+                    var name = nameTokens[1];
+
+                    var x = l.Rect.X - Math.Round((size.Width - l.Rect.Width) / 2.0, MidpointRounding.AwayFromZero);
+                    var y = l.Rect.Y - Math.Round((size.Height - l.Rect.Height) / 2.0, MidpointRounding.AwayFromZero);
+
                     output.AppendText(
                         String.Format(".{0} {{ width: {1}px; height: {2}px; background-position: {3}px {4}px; }}{5}",
-                            l.Name,
-                            l.Rect.Width,
-                            l.Rect.Height,
-                            l.Rect.X != 0 ? -l.Rect.X : 0,
-                            l.Rect.Y != 0 ? -l.Rect.Y : 0,
+                            name,
+                            size.Width,
+                            size.Height,
+                            x,
+                            y,
                             Environment.NewLine
                         )
                     );
